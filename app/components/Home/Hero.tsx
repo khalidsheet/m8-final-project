@@ -11,7 +11,11 @@ export const Hero = () => {
       <div className="text-8xl font-medium bg-clip-text text-white hero-title-animation">
         <div className="relative h-28">
           We make amazing
-          <img className="lines-svg absolute right-0 top-0" src="lines.svg" />
+          <img
+            className="lines-svg absolute right-0 top-0"
+            src="lines.svg"
+            alt="lines"
+          />
         </div>
         <h1 className="h-28">digital products for</h1>
         <h1 className="h-28">your business</h1>

@@ -14,7 +14,7 @@ export const SectionTitle = ({ title, viewMoreUrl }: SectionTitleProps) => (
     {viewMoreUrl && (
       <Link href={viewMoreUrl}>
         <span className="text-sm font-normal text-yellow-500 hover:shadow-lg shadow-yellow-300 uppercase flex items-center space-x-2">
-          <span className="text-yellow-500">View More</span>
+          <span className="text-yellow-500 font-bold">View More</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
