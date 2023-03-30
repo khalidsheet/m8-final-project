@@ -28,6 +28,8 @@ export const Projects = ({ projects }: ProjectsProps) => {
                   width={240}
                   height={240}
                   className="rounded-lg min-w-full min-h-full bg-cover bg-center"
+                  priority
+                  loading="eager"
                 />
               </Link>
             );
