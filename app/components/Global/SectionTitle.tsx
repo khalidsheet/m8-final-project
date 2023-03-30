@@ -6,7 +6,7 @@ export type SectionTitleProps = {
 };
 
 export const SectionTitle = ({ title, viewMoreUrl }: SectionTitleProps) => (
-  <div className="flex justify-between z-10">
+  <div className="flex justify-between items-center z-10">
     <h1 className="latest-projects text-sm font-normal text-white uppercase">
       {title}
     </h1>

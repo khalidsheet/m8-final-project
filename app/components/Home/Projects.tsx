@@ -14,7 +14,7 @@ export const Projects = ({ projects }: ProjectsProps) => {
       <SectionTitle title="our latest projects" viewMoreUrl="/projects" />
 
       <div className="mt-8">
-        <div className="grid grid-flow-row grid-cols-4 gap-6">
+        <div className="grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {projects.map((project, index: number) => {
             return (
               <Link
