@@ -33,3 +33,24 @@ export const GET_PREVIEW_POSTS = gql`
     }
   }
 `;
+
+export const FIND_SINGLE_PROJECT_DETAILS = gql`
+  query FindSingleProjectDetails(
+    $where: ProjectWhereUniqueInput!
+    $stage: Stage!
+  ) {
+    project(where: $where, stage: $stage) {
+      id
+      imagePath
+      publishedAt
+      title
+      createdAt
+      description
+      publishedBy {
+        id
+        name
+        picture
+      }
+    }
+  }
+`;

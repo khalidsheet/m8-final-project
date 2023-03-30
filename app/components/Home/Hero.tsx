@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export const Hero = () => {
   return (
     <section className="mt-16">
@@ -16,7 +18,10 @@ export const Hero = () => {
       </div>
 
       <div className="">
-        <button className="mt-8 bg-gradient-to-r from-yellow-300 to-yellow-500 text-gray-800 font-bold py-4 px-8 rounded-full flex space-x-3 hover:space-x-6 ">
+        <a
+          href="#contact"
+          className="mt-8 bg-gradient-to-r from-yellow-300 to-yellow-500 text-gray-800 font-bold py-4 px-8 rounded-full flex space-x-3 hover:space-x-6 w-max hover:shadow-lg hover:transition-all hover:duration-300 hover:ease-in-out"
+        >
           <span className="text-gray-800">Contact Us</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +37,7 @@ export const Hero = () => {
               d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
             />
           </svg>
-        </button>
+        </a>
       </div>
     </section>
   );

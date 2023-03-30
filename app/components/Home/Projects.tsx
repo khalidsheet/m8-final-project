@@ -10,7 +10,7 @@ export type ProjectsProps = {
 
 export const Projects = ({ projects }: ProjectsProps) => {
   return (
-    <div className="mt-32">
+    <section id="projects" className="pt-32">
       <SectionTitle title="our latest projects" viewMoreUrl="/projects" />
 
       <div className="mt-8">
@@ -34,6 +34,6 @@ export const Projects = ({ projects }: ProjectsProps) => {
           })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

@@ -2,7 +2,7 @@ import { SectionTitle } from "../Global/SectionTitle";
 
 export const ContactUs = () => {
   return (
-    <div className="mt-32">
+    <section id="contact" className="mt-32">
       <SectionTitle title="contact us" />
       <div className="mt-8">
         <div className="grid grid-flow-row grid-cols-2 gap-6">
@@ -80,6 +80,11 @@ export const ContactUs = () => {
                 We look forward to hearing from you and helping you achieve your
                 business goals.
               </div>
+              <div className="mt-12">
+                <h1 className="text-xl font-normal text-white">
+                  Code<span className="text-yellow-400 font-bold">Studio</span>
+                </h1>
+              </div>
             </div>
           </div>
           <div className="col-span-2 md:col-span-1">
@@ -120,6 +125,6 @@ export const ContactUs = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

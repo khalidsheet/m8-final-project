@@ -9,6 +9,7 @@ import { About } from "./components/Home/About";
 import { Services } from "./components/Home/Services";
 import { Footer } from "./components/Global/Footer";
 import { ContactUs } from "./components/Home/ContactUs";
+import { Layout } from "./components/Global/Layout";
 
 export default async function Home() {
   const {
@@ -24,18 +25,13 @@ export default async function Home() {
 
   return (
     <main>
-      <Overlay />
-      <div className="z-10">
-        <Header />
-        <Container>
-          <Hero />
-          <About />
-          <Projects projects={page?.edges} />
-          <Services />
-          <ContactUs />
-        </Container>
-        <Footer />
-      </div>
+      <Layout>
+        <Hero />
+        <About />
+        <Projects projects={page?.edges} />
+        <Services />
+        <ContactUs />
+      </Layout>
     </main>
   );
 }
