@@ -4,7 +4,7 @@ export const Hero = () => {
   return (
     <section className="mt-16">
       <div className="my-4 hero-subtitle-animation">
-        <p className="text-sm font-normal text-yellow-400 uppercase">
+        <p className="text-sm  text-yellow-400 uppercase font-bold">
           a world-class digital agency
         </p>
       </div>
@@ -15,6 +15,7 @@ export const Hero = () => {
             className="lines-svg absolute right-0 top-0"
             src="lines.svg"
             alt="lines"
+            loading="eager"
           />
         </div>
         <h1 className="h-28">digital products for</h1>
