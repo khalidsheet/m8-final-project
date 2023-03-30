@@ -37,7 +37,7 @@ export default async function ProjectPreview(props: any) {
         <title>{project.title}</title>
       </Head>
       <div className="mt-16">
-        <div className="mt-16 mb-8 w-full h-[480px] aspect-auto overflow-hidden rounded-lg bg-center bg-cover">
+        <div className="mt-16 mb-8 w-full h-full md:h-[480px] aspect-auto overflow-hidden rounded-lg bg-center bg-cover">
           <Image
             src={project.imagePath}
             width={1024}
@@ -50,15 +50,7 @@ export default async function ProjectPreview(props: any) {
           />
         </div>
         <div>
-          <div className="flex items-center space-x-4 mb-2">
-            <p className="text-yellow-500">
-              {new Intl.DateTimeFormat("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              }).format(Date.parse(project.createdAt))}
-            </p>
-            <div className="dot w-1.5 h-1.5 bg-slate-600 rounded-full"></div>
+          <div className="flex items-center space-x-2 mb-2">
             <div className="flex items-center space-x-2">
               <p className="text-gray-400">By</p>
               <Image
@@ -71,8 +63,16 @@ export default async function ProjectPreview(props: any) {
                 loading="eager"
                 priority
               />
-              <p className="text-white">{project.publishedBy.name}</p>
+              <p className="text-white text-sm">{project.publishedBy.name}</p>
             </div>
+            <div className="dot w-1.5 h-1.5 bg-slate-600 rounded-full"></div>
+            <p className="text-yellow-500">
+              {new Intl.DateTimeFormat("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              }).format(Date.parse(project.createdAt))}
+            </p>
           </div>
           <h1 className="text-4xl font-bold">{project.title}</h1>
         </div>
