@@ -31,7 +31,7 @@ export const Hero = () => {
         </h1>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center md:justify-start">
         <a
           href="#contact"
           className="mt-8 bg-gradient-to-r from-yellow-300 to-yellow-500 text-gray-800 font-bold py-4 px-8 rounded-full flex space-x-3 hover:space-x-6 w-max hover:shadow-lg hover:transition-all hover:duration-300 hover:ease-in-out"
