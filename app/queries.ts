@@ -54,3 +54,15 @@ export const FIND_SINGLE_PROJECT_DETAILS = gql`
     }
   }
 `;
+
+export const CREATE_CONTACT_FORM = gql`
+  mutation CreateContactForm(
+    $email: String!
+    $message: String!
+    $name: String!
+  ) {
+    createContactForm(data: { email: $email, message: $message, name: $name }) {
+      id
+    }
+  }
+`;

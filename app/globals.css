@@ -111,3 +111,7 @@ img.lines-svg {
   transform: scaleX(1);
   transform-origin: left;
 }
+
+.ant-message-custom-content.ant-message-success * {
+  color: #16a34a !important;
+}

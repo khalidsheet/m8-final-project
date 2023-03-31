@@ -1,6 +1,38 @@
+"use client";
+
+import { LoadingOutlined } from "@ant-design/icons";
 import { SectionTitle } from "../Global/SectionTitle";
+import { Form, message } from "antd";
+import { useState } from "react";
+import client from "@/app/client";
+import { CREATE_CONTACT_FORM } from "@/app/queries";
 
 export const ContactUs = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [form] = Form.useForm();
+
+  const onFinish = async (values: any) => {
+    console.log("Success:", values);
+    setIsLoading(true);
+
+    await client.mutate({
+      mutation: CREATE_CONTACT_FORM,
+      variables: {
+        name: values.name,
+        email: values.email,
+        message: values.message,
+      },
+    });
+
+    setIsLoading(false);
+    message.success("We have received your message. Thank you!");
+    form.resetFields();
+  };
+
+  const onFinishFailed = (errorInfo: any) => {
+    console.log("Failed:", errorInfo);
+  };
+
   return (
     <section id="contact" className="mt-32">
       <SectionTitle title="contact us" />
@@ -88,40 +120,55 @@ export const ContactUs = () => {
             </div>
           </div>
           <div className="col-span-2 md:col-span-1">
-            <form className="flex flex-col">
+            <Form
+              name="basic"
+              style={{ maxWidth: "100%" }}
+              initialValues={{ remember: true }}
+              onFinish={onFinish}
+              onFinishFailed={onFinishFailed}
+              autoComplete="off"
+              className="flex flex-col"
+              form={form}
+            >
               <div className="flex flex-col">
                 <label className="text-sm font-medium text-gray-500">
                   Name
                 </label>
-                <input
-                  type="text"
-                  className="mt-1 focus:ring-yellow-500 h-10  block w-full shadow-sm sm:text-sm focus:border-yellow-300 rounded-md bg-[#00000040] px-3"
-                  placeholder="Your Name"
-                />
+                <Form.Item className="w-full" name="name">
+                  <input
+                    type="text"
+                    className="mt-1 focus:ring-yellow-500 h-10  block w-full shadow-sm sm:text-sm focus:border-yellow-300 rounded-md bg-[#00000040] px-3"
+                    placeholder="Your Name"
+                  />
+                </Form.Item>
               </div>
               <div className="flex flex-col mt-4">
                 <label className="text-sm font-medium text-gray-500">
                   Email
                 </label>
-                <input
-                  type="text"
-                  className="mt-1 focus:ring-yellow-500 h-10  block w-full shadow-sm sm:text-sm focus:border-yellow-300 rounded-md bg-[#00000040] px-3"
-                  placeholder="Your Email"
-                />
+                <Form.Item name="email">
+                  <input
+                    type="email"
+                    className="mt-1 focus:ring-yellow-500 h-10  block w-full shadow-sm sm:text-sm focus:border-yellow-300 rounded-md bg-[#00000040] px-3"
+                    placeholder="Your Email"
+                  />
+                </Form.Item>
               </div>
               <div className="flex flex-col mt-4">
                 <label className="text-sm font-medium text-gray-500">
                   Message
                 </label>
-                <textarea
-                  placeholder="Your Message"
-                  className="mt-1 focus:ring-yellow-500 h-32  block w-full shadow-sm sm:text-sm focus:border-yellow-300 rounded-md bg-[#00000040] p-3"
-                ></textarea>
+                <Form.Item name="message">
+                  <textarea
+                    placeholder="Your Message"
+                    className="mt-1 focus:ring-yellow-500 h-32  block w-full shadow-sm sm:text-sm focus:border-yellow-300 rounded-md bg-[#00000040] p-3"
+                  ></textarea>
+                </Form.Item>
               </div>
               <button className="bg-transparent uppercase border-2 text-white py-2 px-6 text-sm rounded-full hover:bg-white hover:text-black hover:transition-all hover:font-bold mt-8">
-                submit
+                {(isLoading && <LoadingOutlined />) || "submit"}
               </button>
-            </form>
+            </Form>
           </div>
         </div>
       </div>
